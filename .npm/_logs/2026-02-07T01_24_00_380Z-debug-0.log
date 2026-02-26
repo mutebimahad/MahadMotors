@@ -1,0 +1,159 @@
+0 verbose cli /data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.9.0
+2 info using node@v25.3.0
+3 silly config load:file:/data/data/com.termux/files/usr/lib/node_modules/npm/npmrc
+4 silly config load:file:/data/data/com.termux/files/home/.npmrc
+5 silly config load:file:/data/data/com.termux/files/usr/etc/npmrc
+6 verbose title npm exec create-react-app test-haven --template typescript
+7 verbose argv "exec" "--" "create-react-app" "test-haven" "--template" "typescript"
+8 verbose logfile logs-max:10 dir:/data/data/com.termux/files/home/.npm/_logs/2026-02-07T01_24_00_380Z-
+9 verbose logfile /data/data/com.termux/files/home/.npm/_logs/2026-02-07T01_24_00_380Z-debug-0.log
+10 silly logfile done cleaning log files
+11 silly packumentCache heap:1010302976 maxSize:252575744 maxEntrySize:126287872
+12 http fetch GET 200 https://registry.npmjs.org/create-react-app 1315ms (cache revalidated)
+13 silly packumentCache heap:1010302976 maxSize:252575744 maxEntrySize:126287872
+14 silly packumentCache heap:1010302976 maxSize:252575744 maxEntrySize:126287872
+15 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules/create-react-app
+16 silly idealTree buildDeps
+17 silly fetch manifest create-react-app@5.1.0
+18 silly packumentCache full:https://registry.npmjs.org/create-react-app cache-miss
+19 http fetch GET 200 https://registry.npmjs.org/create-react-app 419ms (cache revalidated)
+20 silly packumentCache full:https://registry.npmjs.org/create-react-app set size:253358 disposed:false
+21 silly placeDep ROOT create-react-app@5.1.0 REPLACE for:  want: 5.1.0
+22 silly reify moves {}
+23 silly audit bulk request {
+23 silly audit   'ansi-styles': [ '4.3.0' ],
+23 silly audit   'balanced-match': [ '1.0.2' ],
+23 silly audit   'block-stream': [ '0.0.9' ],
+23 silly audit   'brace-expansion': [ '1.1.12' ],
+23 silly audit   'buffer-from': [ '0.1.2' ],
+23 silly audit   builtins: [ '1.0.3' ],
+23 silly audit   chalk: [ '4.1.2' ],
+23 silly audit   'color-convert': [ '2.0.1' ],
+23 silly audit   'color-name': [ '1.1.4' ],
+23 silly audit   commander: [ '4.1.1' ],
+23 silly audit   'concat-map': [ '0.0.1' ],
+23 silly audit   'core-util-is': [ '1.0.3' ],
+23 silly audit   'cross-spawn': [ '7.0.6' ],
+23 silly audit   debug: [ '2.6.9' ],
+23 silly audit   duplexer2: [ '0.0.2' ],
+23 silly audit   envinfo: [ '7.21.0' ],
+23 silly audit   'fs-extra': [ '10.1.0' ],
+23 silly audit   'fs.realpath': [ '1.0.0' ],
+23 silly audit   fstream: [ '1.0.12' ],
+23 silly audit   'fstream-ignore': [ '1.0.5' ],
+23 silly audit   glob: [ '7.2.3' ],
+23 silly audit   'graceful-fs': [ '4.2.11' ],
+23 silly audit   'has-flag': [ '4.0.0' ],
+23 silly audit   hyperquest: [ '2.1.3' ],
+23 silly audit   inflight: [ '1.0.6' ],
+23 silly audit   inherits: [ '2.0.4' ],
+23 silly audit   isarray: [ '0.0.1', '1.0.0' ],
+23 silly audit   isexe: [ '2.0.0' ],
+23 silly audit   jsonfile: [ '6.2.0' ],
+23 silly audit   kleur: [ '3.0.3' ],
+23 silly audit   minimatch: [ '3.1.2' ],
+23 silly audit   minimist: [ '1.2.8' ],
+23 silly audit   mkdirp: [ '0.5.6' ],
+23 silly audit   ms: [ '2.0.0' ],
+23 silly audit   once: [ '1.4.0' ],
+23 silly audit   'path-is-absolute': [ '1.0.1' ],
+23 silly audit   'path-key': [ '3.1.1' ],
+23 silly audit   'process-nextick-args': [ '2.0.1' ],
+23 silly audit   prompts: [ '2.4.2' ],
+23 silly audit   'readable-stream': [ '1.1.14', '2.3.8', '1.0.34' ],
+23 silly audit   rimraf: [ '2.7.1' ],
+23 silly audit   'safe-buffer': [ '5.1.2' ],
+23 silly audit   semver: [ '7.7.4' ],
+23 silly audit   'shebang-command': [ '2.0.0' ],
+23 silly audit   'shebang-regex': [ '3.0.0' ],
+23 silly audit   sisteransi: [ '1.0.5' ],
+23 silly audit   string_decoder: [ '0.10.31', '1.1.1' ],
+23 silly audit   'supports-color': [ '7.2.0' ],
+23 silly audit   tar: [ '2.2.2' ],
+23 silly audit   'tar-pack': [ '3.4.1' ],
+23 silly audit   through2: [ '0.6.5' ],
+23 silly audit   tmp: [ '0.2.5' ],
+23 silly audit   'uid-number': [ '0.0.6' ],
+23 silly audit   universalify: [ '2.0.1' ],
+23 silly audit   'util-deprecate': [ '1.0.2' ],
+23 silly audit   'validate-npm-package-name': [ '3.0.0' ],
+23 silly audit   which: [ '2.0.2' ],
+23 silly audit   wrappy: [ '1.0.2' ],
+23 silly audit   xtend: [ '4.0.2' ],
+23 silly audit   'create-react-app': [ '5.1.0' ]
+23 silly audit }
+24 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 449ms
+25 silly audit report {
+25 silly audit report   tar: [
+25 silly audit report     {
+25 silly audit report       id: 1112255,
+25 silly audit report       url: 'https://github.com/advisories/GHSA-8qq5-rm4j-mr97',
+25 silly audit report       title: 'node-tar is Vulnerable to Arbitrary File Overwrite and Symlink Poisoning via Insufficient Path Sanitization',
+25 silly audit report       severity: 'high',
+25 silly audit report       vulnerable_versions: '<=7.5.2',
+25 silly audit report       cwe: [Array],
+25 silly audit report       cvss: [Object]
+25 silly audit report     },
+25 silly audit report     {
+25 silly audit report       id: 1112329,
+25 silly audit report       url: 'https://github.com/advisories/GHSA-r6q2-hw4h-h46w',
+25 silly audit report       title: 'Race Condition in node-tar Path Reservations via Unicode Ligature Collisions on macOS APFS',
+25 silly audit report       severity: 'high',
+25 silly audit report       vulnerable_versions: '<=7.5.3',
+25 silly audit report       cwe: [Array],
+25 silly audit report       cvss: [Object]
+25 silly audit report     },
+25 silly audit report     {
+25 silly audit report       id: 1112659,
+25 silly audit report       url: 'https://github.com/advisories/GHSA-34x7-hfp2-rc4v',
+25 silly audit report       title: 'node-tar Vulnerable to Arbitrary File Creation/Overwrite via Hardlink Path Traversal',
+25 silly audit report       severity: 'high',
+25 silly audit report       vulnerable_versions: '<7.5.7',
+25 silly audit report       cwe: [Array],
+25 silly audit report       cvss: [Object]
+25 silly audit report     },
+25 silly audit report     {
+25 silly audit report       id: 1089685,
+25 silly audit report       url: 'https://github.com/advisories/GHSA-3jfq-g458-7qm9',
+25 silly audit report       title: 'Arbitrary File Creation/Overwrite due to insufficient absolute path sanitization',
+25 silly audit report       severity: 'high',
+25 silly audit report       vulnerable_versions: '<3.2.2',
+25 silly audit report       cwe: [Array],
+25 silly audit report       cvss: [Object]
+25 silly audit report     },
+25 silly audit report     {
+25 silly audit report       id: 1095117,
+25 silly audit report       url: 'https://github.com/advisories/GHSA-5955-9wpr-37jh',
+25 silly audit report       title: 'Arbitrary File Creation/Overwrite on Windows via insufficient relative path sanitization',
+25 silly audit report       severity: 'high',
+25 silly audit report       vulnerable_versions: '<4.4.18',
+25 silly audit report       cwe: [Array],
+25 silly audit report       cvss: [Object]
+25 silly audit report     },
+25 silly audit report     {
+25 silly audit report       id: 1097493,
+25 silly audit report       url: 'https://github.com/advisories/GHSA-f5x3-32g6-xq36',
+25 silly audit report       title: 'Denial of service while parsing a tar file due to lack of folders count validation',
+25 silly audit report       severity: 'moderate',
+25 silly audit report       vulnerable_versions: '<6.2.1',
+25 silly audit report       cwe: [Array],
+25 silly audit report       cvss: [Object]
+25 silly audit report     }
+25 silly audit report   ]
+25 silly audit report }
+26 silly packumentCache corgi:https://registry.npmjs.org/tar cache-miss
+27 http fetch GET 200 https://registry.npmjs.org/tar 92ms (cache revalidated)
+28 silly packumentCache corgi:https://registry.npmjs.org/tar set size:193467 disposed:false
+29 silly packumentCache corgi:https://registry.npmjs.org/tar-pack cache-miss
+30 http fetch GET 200 https://registry.npmjs.org/tar-pack 893ms (cache revalidated)
+31 silly packumentCache corgi:https://registry.npmjs.org/tar-pack set size:9421 disposed:false
+32 silly packumentCache corgi:https://registry.npmjs.org/create-react-app cache-miss
+33 http cache https://registry.npmjs.org/create-react-app 18ms (cache hit)
+34 silly packumentCache corgi:https://registry.npmjs.org/create-react-app set size:137779 disposed:false
+35 verbose cwd /data/data/com.termux/files/home
+36 verbose os Linux 4.19.125-perf
+37 verbose node v25.3.0
+38 verbose npm  v11.9.0
+39 verbose exit 1
+40 verbose code 1
