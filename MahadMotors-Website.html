@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahad Motors Uganda – Import Japanese Cars via STC Japan</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:#080808;color:#ddd;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#0a0a0a}::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:3px}
+:root{--r:#CC0000;--dark:#080808;--card:#141414;--surf:#0f0f0f;--border:rgba(255,255,255,0.07);--muted:#444}
+
+/* ANIMATIONS */
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(8,8,8,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.7)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:60px;max-width:1400px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:36px;height:36px;background:var(--r);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px}
+.logo-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:#fff}
+.logo-name span{color:var(--r)}
+.logo-sub{font-size:8.5px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;gap:2px}
+.nav-links a{font-size:12px;color:#777;padding:5px 9px;border-radius:5px;transition:all .2s}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.05)}
+.nav-wa{background:var(--r);color:#fff;padding:7px 16px;border-radius:7px;font-size:12.5px;font-weight:700;transition:all .2s}
+.nav-wa:hover{opacity:.9}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.hamburger span{width:22px;height:2px;background:#fff;border-radius:1px;display:block;transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(8,8,8,.98);border-bottom:1px solid var(--border);padding:14px 20px;z-index:199;flex-direction:column;gap:4px;animation:slideIn .25s ease}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:11px 13px;font-size:14px;color:#888;border-radius:7px;transition:all .2s}
+.mobile-menu a:hover{color:#fff;background:rgba(255,255,255,.05)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0a0a0a 0%,#0f0000 100%);padding:72px 28px 56px;position:relative;overflow:hidden;animation:fadeUp .8s ease}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 0% 70%,rgba(204,0,0,.13),transparent 55%);pointer-events:none}
+.hero-inner{max-width:700px;position:relative;z-index:1}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(204,0,0,.12);border:1px solid rgba(204,0,0,.3);padding:6px 16px;border-radius:100px;font-size:11.5px;font-weight:600;color:#ff6666;margin-bottom:22px}
+.pill-dot{width:7px;height:7px;background:#ff4444;border-radius:50%;animation:dot 1.8s infinite;display:inline-block}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,96px);line-height:.92;letter-spacing:1px;color:#fff;margin-bottom:20px}
+.hero h1 span{color:var(--r)}
+.hero-sub{font-size:15px;color:#5a5a5a;line-height:1.8;max-width:460px;margin-bottom:28px}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--r);color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:700;border:none;cursor:pointer;box-shadow:0 6px 28px rgba(204,0,0,.42);transition:all .25s;text-decoration:none}
+.btn-primary:hover{opacity:.9;transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);color:#ccc;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:600;border:1px solid rgba(255,255,255,.12);cursor:pointer;transition:all .2s;text-decoration:none;font-family:'DM Sans',sans-serif}
+.btn-ghost:hover{background:rgba(255,255,255,.09)}
+.btn-calc{background:transparent;border:1px solid rgba(204,0,0,.35);color:#ff6666;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.btn-calc:hover{background:rgba(204,0,0,.1)}
+.hero-stats{display:flex;flex-wrap:wrap;gap:0}
+.hs{padding:0 20px}
+.hs:first-child{padding-left:0}
+.hs-val{font-family:'Bebas Neue',sans-serif;font-size:30px;color:#fff;line-height:1}
+.hs-lbl{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-top:3px}
+.hs-div{width:1px;background:var(--border)}
+
+/* CALCULATOR */
+.calc-wrap{background:var(--card);border:1px solid rgba(204,0,0,.22);border-radius:14px;margin:0 24px;padding:26px 22px;display:none;animation:slideIn .3s ease}
+.calc-wrap.open{display:block}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.calc-field label{display:block;font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.calc-field input,.calc-field select{width:100%;background:#0d0d0d;border:1px solid var(--border);border-radius:7px;padding:10px 13px;color:#fff;font-size:13px;font-family:'DM Sans',sans-serif;outline:none}
+.calc-result{background:#0a0a0a;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:none}
+.calc-result.show{display:block}
+.calc-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12.5px}
+.calc-row:last-child{border-bottom:none;padding-top:12px;margin-top:4px;border-top:1px solid var(--border)}
+.calc-row .lbl{color:var(--muted)}.calc-row .val{color:#ddd;font-weight:600}
+.calc-total .lbl{color:#fff!important;font-weight:800;font-size:14px!important}
+.calc-total .val{color:var(--r)!important;font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.5px}
+.calc-ugx{text-align:right;font-size:10.5px;color:var(--muted);margin-top:4px}
+.calc-note{font-size:11px;color:#2a2a2a;margin-top:10px}
+
+/* TICKER */
+.ticker{background:var(--surf);border-top:1px solid var(--border);border-bottom:1px solid var(--border);height:42px;display:flex;align-items:center;overflow:hidden;margin-top:2px}
+.ticker-label{background:var(--r);color:#fff;padding:0 18px;height:100%;display:flex;align-items:center;font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.ticker-track{display:flex;animation:ticker 40s linear infinite;white-space:nowrap}
+.tick{display:inline-flex;align-items:center;gap:7px;padding:0 22px;font-size:12.5px;color:#4a4a4a;border-right:1px solid var(--border);height:42px}
+.tick strong{color:#bbb;font-weight:600}
+.tick .price{color:#44cc77;font-weight:700}
+
+/* BRAND STRIP */
+.brandstrip{background:var(--surf);border-bottom:1px solid var(--border);padding:13px 28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.bs-label{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;white-space:nowrap}
+.bs-div{width:1px;height:14px;background:var(--border)}
+.bs-brands{display:flex;gap:18px;flex-wrap:wrap}
+.bs-brand{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;color:rgba(255,255,255,.2);transition:color .2s;cursor:default}
+.bs-brand:hover{color:rgba(255,255,255,.5)}
+.bs-brand span{color:var(--r);font-size:11px;font-family:'DM Sans',sans-serif;font-weight:700}
+.bs-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(204,0,0,.1);border:1px solid rgba(204,0,0,.22);padding:5px 13px;border-radius:6px;font-size:11px;color:#ff6666;margin-left:auto}
+
+/* STATS BAND */
+.statsband{background:var(--r);padding:24px 28px;display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
+.stat-item{border-right:1px solid rgba(255,255,255,.22);padding:0 8px}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;line-height:1}
+.stat-lbl{font-size:11px;color:rgba(255,255,255,.7);margin-top:4px}
+
+/* SECTION */
+.section{padding:64px 28px}
+.section-dark{background:var(--surf);border-top:1px solid var(--border)}
+.section-alt{background:#0c0c0c}
+.sec-label{font-size:10.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--r);display:block;margin-bottom:8px}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,48px);color:#fff;letter-spacing:.5px;margin-bottom:8px}
+.sec-sub{font-size:14px;color:var(--muted);max-width:460px;line-height:1.75;margin-bottom:32px}
+
+/* FILTER BUTTONS */
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+.flt{padding:6px 16px;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:transparent;color:#666;font-family:'DM Sans',sans-serif;transition:all .2s}
+.flt:hover,.flt.active{background:rgba(204,0,0,.12);border-color:rgba(204,0,0,.4);color:#ff6666}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;margin-bottom:28px}
+
+/* CARS GRID */
+.cars-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:16px}
+.car-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
+.car-card:hover{transform:translateY(-5px);box-shadow:0 20px 55px rgba(0,0,0,.6);border-color:rgba(204,0,0,.2)}
+.car-img{position:relative;height:185px;overflow:hidden;background:#0d0d0d}
+.car-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.car-card:hover .car-img img{transform:scale(1.06)}
+.car-badge{position:absolute;top:10px;left:10px;padding:3px 11px;border-radius:100px;font-size:10.5px;font-weight:700}
+.car-stc{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15);border-radius:5px;padding:3px 9px;font-size:9.5px;font-weight:600;color:#bbb;text-decoration:none;transition:all .2s}
+.car-stc:hover{background:var(--r);color:#fff;border-color:transparent}
+.car-body{padding:15px 17px}
+.car-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.car-make{font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted)}
+.car-yr{font-size:10.5px;font-weight:700;background:rgba(255,255,255,.05);border:1px solid var(--border);padding:1px 9px;border-radius:100px;color:#888}
+.car-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.5px;color:#fff;margin-bottom:12px;line-height:1.1}
+.specs-row{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:13px}
+.spec{flex:1;text-align:center;padding:8px 3px;background:rgba(255,255,255,.02);border-right:1px solid var(--border)}
+.spec:last-child{border-right:none}
+.spec-icon{font-size:11px}
+.spec-val{display:block;font-size:10px;font-weight:700;color:#ddd;margin-top:2px}
+.spec-key{font-size:8.5px;color:var(--muted)}
+.car-foot{display:flex;justify-content:space-between;align-items:center;padding-top:11px;border-top:1px solid var(--border)}
+.car-price{font-family:'Bebas Neue',sans-serif;font-size:26px;color:#fff;line-height:1}
+.car-price sup{font-size:13px;color:var(--r);font-family:'DM Sans',sans-serif;font-weight:700}
+.car-ugx{font-size:9.5px;color:var(--muted);margin-top:1px}
+.btn-enq{background:rgba(204,0,0,.1);border:1px solid rgba(204,0,0,.32);color:#ff6666;padding:8px 16px;border-radius:7px;font-size:12.5px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block}
+.btn-enq:hover{background:var(--r);color:#fff;border-color:var(--r)}
+.load-wrap{text-align:center;margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-more{background:var(--card);border:1px solid var(--border);color:#888;padding:11px 26px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+.btn-more:hover{border-color:rgba(255,255,255,.25);color:#fff}
+
+/* PROCESS */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:44px}
+.proc-step{background:var(--card);padding:28px 20px;position:relative;transition:background .3s}
+.proc-step:hover{background:#1c1c1c}
+.ps-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:rgba(255,255,255,.03);position:absolute;top:12px;right:16px;line-height:1}
+.ps-icon{width:42px;height:42px;background:rgba(204,0,0,.1);border:1px solid rgba(204,0,0,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:14px}
+.proc-step h3{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.5px;color:#fff;margin-bottom:7px}
+.proc-step p{font-size:12.5px;color:var(--muted);line-height:1.65}
+
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:32px}
+.why-card{display:flex;gap:14px;padding:17px 18px;background:var(--card);border:1px solid var(--border);border-radius:11px;transition:all .25s}
+.why-card:hover{border-color:rgba(204,0,0,.25);background:#1a1a1a}
+.why-icon{width:42px;height:42px;flex-shrink:0;background:rgba(204,0,0,.09);border:1px solid rgba(204,0,0,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.why-card h4{font-size:13.5px;font-weight:700;color:#fff;margin-bottom:5px}
+.why-card p{font-size:12px;color:var(--muted);line-height:1.65}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:32px}
+.testi-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
+.stars{color:#f59e0b;font-size:14px;margin-bottom:10px}
+.testi-text{font-size:13px;color:#666;line-height:1.75;font-style:italic;margin-bottom:14px}
+.testi-auth{display:flex;align-items:center;gap:10px}
+.testi-avatar{width:34px;height:34px;background:var(--r);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0}
+.testi-name{font-size:13px;font-weight:700;color:#fff}
+.testi-loc{font-size:10.5px;color:var(--muted)}
+.testi-car{font-size:10.5px;color:var(--r);margin-top:2px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:32px}
+.about-text p{font-size:13.5px;color:#5a5a5a;line-height:1.82;margin-bottom:14px}
+.about-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.about-tag{font-size:11px;background:rgba(204,0,0,.1);border:1px solid rgba(204,0,0,.2);color:#ff6666;padding:4px 11px;border-radius:100px}
+.about-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:22px 20px}
+.about-card h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:18px}
+.c-row{display:flex;gap:10px;margin-bottom:12px}
+.c-ico{font-size:13px;flex-shrink:0;margin-top:1px}
+.c-val{font-size:12.5px;color:#666;line-height:1.5}
+.c-val strong{display:block;font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.c-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
+.c-btn-r{background:var(--r);color:#fff;padding:9px 14px;border-radius:7px;font-size:12.5px;font-weight:700;text-align:center}
+.c-btn-g{background:rgba(255,255,255,.05);border:1px solid var(--border);color:#ccc;padding:9px 14px;border-radius:7px;font-size:12.5px;font-weight:600;text-align:center}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:8px;margin-top:32px;max-width:820px}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:15px 18px;background:transparent;border:none;cursor:pointer;color:#fff;text-align:left;font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:600;transition:background .2s}
+.faq-q:hover{background:rgba(255,255,255,.03)}
+.faq-icon{color:var(--r);font-size:20px;font-weight:300;margin-left:12px;flex-shrink:0;transition:transform .25s;display:inline-block}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 18px 15px;font-size:13px;color:#5a5a5a;line-height:1.75}
+.faq-item.open .faq-a{display:block}
+
+/* CTA */
+.cta-section{padding:0 28px 64px}
+.cta-box{background:linear-gradient(135deg,#8b0000,#cc0000,#8b0000);border-radius:18px;padding:56px 48px;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(255,255,255,.04),transparent 60%);pointer-events:none}
+.cta-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.cta-box h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,62px);color:#fff;line-height:1;letter-spacing:.5px;margin-bottom:12px}
+.cta-box p{font-size:14px;color:rgba(255,255,255,.62);line-height:1.72;max-width:420px}
+.cta-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex-shrink:0;min-width:280px}
+.cta-btn-w{background:#fff;color:var(--r);padding:12px 16px;border-radius:9px;font-weight:800;font-size:13px;text-align:center;transition:all .2s}
+.cta-btn-w:hover{background:#f0f0f0}
+.cta-btn-o{background:rgba(255,255,255,.1);color:#fff;border:2px solid rgba(255,255,255,.28);padding:12px 16px;border-radius:9px;font-weight:700;font-size:13px;text-align:center;transition:all .2s}
+.cta-btn-o:hover{border-color:#fff;background:rgba(255,255,255,.18)}
+
+/* FOOTER */
+footer{background:#040404;border-top:1px solid var(--border);padding:52px 28px 22px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:44px}
+.fb-logo-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:#fff}
+.fb-logo-name span{color:var(--r)}
+.fb p{font-size:12.5px;color:#222;line-height:1.8;max-width:250px;margin-top:12px}
+.fb-stc{display:inline-flex;align-items:center;gap:6px;background:rgba(204,0,0,.1);border:1px solid rgba(204,0,0,.2);padding:5px 13px;border-radius:6px;font-size:11px;color:#ff6666;margin-top:13px}
+.social-icons{display:flex;gap:8px;margin-top:13px}
+.social-ico{width:32px;height:32px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s}
+.social-ico:hover{background:rgba(204,0,0,.12);border-color:rgba(204,0,0,.3)}
+.fc h5{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#222;margin-bottom:16px}
+.fc ul{list-style:none}
+.fc li{margin-bottom:9px}
+.fc a{font-size:12.5px;color:#252525;transition:color .2s}
+.fc a:hover{color:#888}
+.fc-row{display:flex;gap:8px;margin-bottom:12px}
+.fc-ico{font-size:13px;flex-shrink:0;margin-top:1px}
+.fc-txt{font-size:12px;color:#252525;line-height:1.5}
+.fc-txt strong{display:block;font-size:9px;color:#333;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.footer-bottom{display:flex;justify-content:space-between;padding-top:18px;border-top:1px solid var(--border);flex-wrap:wrap;gap:6px}
+.footer-bottom p{font-size:11px;color:#1a1a1a}
+.footer-bottom a{color:var(--r)}
+
+/* FLOATING */
+.float-wa{position:fixed;bottom:24px;right:20px;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:25px;box-shadow:0 4px 22px rgba(37,211,102,.52);z-index:999;text-decoration:none;transition:transform .2s}
+.float-wa:hover{transform:scale(1.08)}
+.float-top{position:fixed;bottom:88px;right:22px;width:40px;height:40px;background:var(--card);border:1px solid var(--border);border-radius:50%;display:none;align-items:center;justify-content:center;font-size:16px;cursor:pointer;z-index:999;color:#888;font-family:'DM Sans',sans-serif}
+.float-top.show{display:flex}
+.float-top:hover{border-color:rgba(255,255,255,.3);color:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .proc-grid{grid-template-columns:1fr 1fr}
+  .statsband{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr}
+  .cta-box{padding:40px 28px}
+}
+@media(max-width:768px){
+  .nav-links,.nav-wa{display:none}
+  .hamburger{display:flex}
+  .section{padding:52px 16px}
+  .hero{padding:52px 16px 44px}
+  .cta-section{padding:0 16px 52px}
+  .brandstrip,.statsband,.ticker-label+.ticker-track{padding-left:16px}
+  .proc-grid{grid-template-columns:1fr}
+  .cars-grid{grid-template-columns:1fr}
+  .cta-inner{flex-direction:column}
+  .cta-btns{grid-template-columns:1fr;width:100%;min-width:auto}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .calc-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-icon">🚗</div>
+      <div>
+        <div class="logo-name">MAHAD <span>MOTORS</span></div>
+        <div class="logo-sub">STC Japan Partner · Uganda</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#stock">Stock</a>
+      <a href="#process">Process</a>
+      <a href="#why">Why Us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a href="#cta">Contact</a>
+    </div>
+    <a href="https://api.whatsapp.com/send?phone=818080870980" target="_blank" class="nav-wa">💬 WhatsApp</a>
+    <button class="hamburger" id="hbg"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mob">
+  <a href="#stock" onclick="closeMob()">Browse Stock</a>
+  <a href="#process" onclick="closeMob()">Import Process</a>
+  <a href="#why" onclick="closeMob()">Why Us</a>
+  <a href="#reviews" onclick="closeMob()">Reviews</a>
+  <a href="#about" onclick="closeMob()">About Us</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
+  <a href="#cta" onclick="closeMob()">Contact</a>
+  <a href="https://stcjapan.net" target="_blank">🇯🇵 STC Japan Official</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-pill"><span class="pill-dot"></span> Official STC Japan Partner · Uganda</div>
+    <h1>YOUR<br>BRIDGE TO<br><span>JAPANESE</span><br>QUALITY CARS</h1>
+    <p class="hero-sub">We connect Ugandans directly with STC Japan — Japan's #1 used car exporter for 20+ years. Verified vehicles, real auction prices, door-to-door delivery to Uganda.</p>
+    <div class="hero-btns">
+      <a href="#stock" class="btn-primary">Browse Live Stock →</a>
+      <a href="https://api.whatsapp.com/send?phone=818080870980" target="_blank" class="btn-ghost">💬 WhatsApp Us</a>
+      <button class="btn-calc" onclick="toggleCalc()">🧮 Cost Calculator</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-val">1,800+</div><div class="hs-lbl">Cars in Stock</div></div>
+      <div class="hs-div"></div>
+      <div class="hs"><div class="hs-val">20+</div><div class="hs-lbl">Years Exporting</div></div>
+      <div class="hs-div"></div>
+      <div class="hs"><div class="hs-val">1M+</div><div class="hs-lbl">Customers</div></div>
+      <div class="hs-div"></div>
+      <div class="hs"><div class="hs-val">⭐4.9</div><div class="hs-lbl">Rating</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<div class="calc-wrap" id="calcWrap">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+    <div>
+      <div style="font-weight:800;font-size:17px;color:#fff">🧮 Uganda Import Cost Calculator</div>
+      <div style="font-size:11.5px;color:var(--muted);margin-top:2px">Estimate total landed cost including duty &amp; VAT</div>
+    </div>
+    <button onclick="toggleCalc()" style="background:rgba(255,255,255,.05);border:1px solid var(--border);color:#777;padding:5px 12px;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px">✕ Close</button>
+  </div>
+  <div class="calc-grid">
+    <div class="calc-field">
+      <label>FOB Price (USD)</label>
+      <input type="number" id="cFob" placeholder="e.g. 9500" oninput="calcCost()">
+    </div>
+    <div class="calc-field">
+      <label>Vehicle Age</label>
+      <select id="cAge" onchange="calcCost()">
+        <option value="0.25">Under 4 years (25%)</option>
+        <option value="0.35" selected>4–8 years (35%)</option>
+        <option value="0.45">Over 8 years (45%)</option>
+      </select>
+    </div>
+  </div>
+  <div class="calc-result" id="calcRes">
+    <div class="calc-row"><span class="lbl">FOB Price</span><span class="val" id="rFob"></span></div>
+    <div class="calc-row"><span class="lbl">Freight (Est.)</span><span class="val">$1,800</span></div>
+    <div class="calc-row"><span class="lbl">Insurance (1%)</span><span class="val" id="rIns"></span></div>
+    <div class="calc-row" style="border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:8px"><span class="lbl" style="color:#999;font-weight:600">CIF Total</span><span class="val" id="rCif" style="color:#bbb"></span></div>
+    <div class="calc-row"><span class="lbl">Import Duty</span><span class="val" id="rDuty"></span></div>
+    <div class="calc-row"><span class="lbl">VAT (18%)</span><span class="val" id="rVat"></span></div>
+    <div class="calc-row calc-total"><span class="lbl">Total Landed Cost</span><span class="val" id="rTotal"></span></div>
+    <div class="calc-ugx" id="rUgx"></div>
+  </div>
+  <div class="calc-note">* Estimates only. Actual duty set by URA based on engine size &amp; vehicle age.</div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-label">🔴 LIVE STOCK</div>
+  <div class="ticker-track">
+    <div class="tick">🚗 <strong>BMW X4</strong> · 2020 · 83,000km · Diesel · <span class="price">$25,000</span></div>
+    <div class="tick">🚙 <strong>Honda Vezel</strong> · 2019 · 101,000km · Hybrid · <span class="price">$9,500</span></div>
+    <div class="tick">🚐 <strong>Nissan Serena</strong> · 2018 · 102,000km · Hybrid · <span class="price">$8,800</span></div>
+    <div class="tick">🚗 <strong>Nissan Note</strong> · 2018 · 103,000km · Hybrid · <span class="price">$6,100</span></div>
+    <div class="tick">🏔️ <strong>Land Cruiser 200</strong> · 4700cc · 4WD · <span class="price">$32,000</span></div>
+    <div class="tick">📦 <strong>Toyota</strong> — 848 vehicles</div>
+    <div class="tick">📦 <strong>Nissan</strong> — 235 vehicles</div>
+    <div class="tick">📦 <strong>Honda</strong> — 197 vehicles</div>
+    <div class="tick">📦 <strong>Mercedes</strong> — 63 vehicles</div>
+    <div class="tick">🚗 <strong>BMW X4</strong> · 2020 · 83,000km · Diesel · <span class="price">$25,000</span></div>
+    <div class="tick">🚙 <strong>Honda Vezel</strong> · 2019 · 101,000km · Hybrid · <span class="price">$9,500</span></div>
+    <div class="tick">🚐 <strong>Nissan Serena</strong> · 2018 · 102,000km · Hybrid · <span class="price">$8,800</span></div>
+    <div class="tick">🚗 <strong>Nissan Note</strong> · 2018 · 103,000km · Hybrid · <span class="price">$6,100</span></div>
+    <div class="tick">🏔️ <strong>Land Cruiser 200</strong> · 4700cc · 4WD · <span class="price">$32,000</span></div>
+    <div class="tick">📦 <strong>Toyota</strong> — 848 vehicles</div>
+    <div class="tick">📦 <strong>Nissan</strong> — 235 vehicles</div>
+    <div class="tick">📦 <strong>Honda</strong> — 197 vehicles</div>
+    <div class="tick">📦 <strong>Mercedes</strong> — 63 vehicles</div>
+  </div>
+</div>
+
+<!-- BRAND STRIP -->
+<div class="brandstrip">
+  <span class="bs-label">Stock from Japan:</span>
+  <div class="bs-div"></div>
+  <div class="bs-brands">
+    <span class="bs-brand">TOYOTA <span>(848)</span></span>
+    <span class="bs-brand">NISSAN <span>(235)</span></span>
+    <span class="bs-brand">HONDA <span>(197)</span></span>
+    <span class="bs-brand">VW <span>(98)</span></span>
+    <span class="bs-brand">MERCEDES <span>(63)</span></span>
+    <span class="bs-brand">SUZUKI <span>(62)</span></span>
+    <span class="bs-brand">BMW <span>(34)</span></span>
+    <span class="bs-brand">AUDI <span>(23)</span></span>
+  </div>
+  <span class="bs-badge">🇯🇵 Verified STC Japan Partner</span>
+</div>
+
+<!-- STATS -->
+<div class="statsband">
+  <div class="stat-item"><div class="stat-num">1,800+</div><div class="stat-lbl">Live Vehicles</div></div>
+  <div class="stat-item"><div class="stat-num">20 YRS</div><div class="stat-lbl">Exporting</div></div>
+  <div class="stat-item"><div class="stat-num">1M+</div><div class="stat-lbl">Customers</div></div>
+  <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl">Offices World</div></div>
+</div>
+
+<!-- STOCK -->
+<section class="section" id="stock">
+  <div class="sec-head">
+    <div>
+      <span class="sec-label">Live from STC Japan</span>
+      <h2 class="sec-title">Featured Vehicles</h2>
+    </div>
+    <div class="filters">
+      <button class="flt active" data-filter="all">All</button>
+      <button class="flt" data-filter="hybrid">Hybrid</button>
+      <button class="flt" data-filter="suv">SUV</button>
+      <button class="flt" data-filter="sedan">Sedan</button>
+      <button class="flt" data-filter="diesel">Diesel</button>
+    </div>
+  </div>
+  <div class="cars-grid" id="carsGrid">
+
+    <div class="car-card" data-type="suv diesel">
+      <div class="car-img"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=500&q=75" alt="BMW X4" onerror="this.style.display='none'">
+        <span class="car-badge" style="background:#92400e;color:#fed7aa">Diesel</span>
+        <a href="https://stcjapan.net" target="_blank" class="car-stc">🇯🇵 #2648</a></div>
+      <div class="car-body">
+        <div class="car-top"><span class="car-make">BMW</span><span class="car-yr">2020</span></div>
+        <div class="car-name">X4 XDRIVE20D</div>
+        <div class="specs-row">
+          <div class="spec"><span class="spec-icon">🛣️</span><span class="spec-val">83,000</span><span class="spec-key">KM</span></div>
+          <div class="spec"><span class="spec-icon">⛽</span><span class="spec-val">Diesel</span><span class="spec-key">Fuel</span></div>
+          <div class="spec"><span class="spec-icon">🎨</span><span class="spec-val">White</span><span class="spec-key">Color</span></div>
+          <div class="spec"><span class="spec-icon">⚙️</span><span class="spec-val">2000cc</span><span class="spec-key">Engine</span></div>
+        </div>
+        <div class="car-foot">
+          <div><div class="car-price"><sup>$</sup>25,000</div><div class="car-ugx">≈ UGX 93.8M · FOB Japan</div></div>
+          <a href="https://api.whatsapp.com/send?phone=818080870980&text=Hi%20STC%20Japan%2C%20interested%20in%20BMW%20X4%20%232648%20%2425%2C000%20-%20Uganda" target="_blank" class="btn-enq">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card" data-type="hybrid suv">
+      <div class="car-img"><img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=500&q=75" alt="Honda Vezel" onerror="this.style.display='none'">
+        <span class="car-badge" style="background:#14532d;color:#86efac">Hybrid</span>
+        <a href="https://stcjapan.net" target="_blank" class="car-stc">🇯🇵 #2643</a></div>
+      <div class="car-body">
+        <div class="car-top"><span class="car-make">Honda</span><span class="car-yr">2019</span></div>
+        <div class="car-name">VEZEL HYBRID RS</div>
+        <div class="specs-row">
+          <div class="spec"><span class="spec-icon">🛣️</span><span class="spec-val">101,000</span><span class="spec-key">KM</span></div>
+          <div class="spec"><span class="spec-icon">⛽</span><span class="spec-val">Hybrid</span><span class="spec-key">Fuel</span></div>
+          <div class="spec"><span class="spec-icon">🎨</span><span class="spec-val">White</span><span class="spec-key">Color</span></div>
+          <div class="spec"><span class="spec-icon">⚙️</span><span class="spec-val">1500cc</span><span class="spec-key">Engine</span></div>
+        </div>
+        <div class="car-foot">
+          <div><div class="car-price"><sup>$</sup>9,500</div><div class="car-ugx">≈ UGX 35.6M · FOB Japan</div></div>
+          <a href="https://api.whatsapp.com/send?phone=818080870980&text=Hi%20STC%20Japan%2C%20interested%20in%20Honda%20Vezel%20Hybrid%20%249%2C500%20-%20Uganda" target="_blank" class="btn-enq">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card" data-type="hybrid">
+      <div class="car-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=500&q=75" alt="Nissan Serena" onerror="this.style.display='none'">
+        <span class="car-badge" style="background:#14532d;color:#86efac">Hybrid</span>
+        <a href="https://stcjapan.net" target="_blank" class="car-stc">🇯🇵 #2640</a></div>
+      <div class="car-body">
+        <div class="car-top"><span class="car-make">Nissan</span><span class="car-yr">2018</span></div>
+        <div class="car-name">SERENA E-POWER</div>
+        <div class="specs-row">
+          <div class="spec"><span class="spec-icon">🛣️</span><span class="spec-val">102,000</span><span class="spec-key">KM</span></div>
+          <div class="spec"><span class="spec-icon">⛽</span><span class="spec-val">Hybrid</span><span class="spec-key">Fuel</span></div>
+          <div class="spec"><span class="spec-icon">🎨</span><span class="spec-val">White</span><span class="spec-key">Color</span></div>
+          <div class="spec"><span class="spec-icon">⚙️</span><span class="spec-val">1200cc</span><span class="spec-key">Engine</span></div>
+        </div>
+        <div class="car-foot">
+          <div><div class="car-price"><sup>$</sup>8,800</div><div class="car-ugx">≈ UGX 33M · FOB Japan</div></div>
+          <a href="https://api.whatsapp.com/send?phone=818080870980&text=Hi%20STC%20Japan%2C%20interested%20in%20Nissan%20Serena%20%248%2C800%20-%20Uganda" target="_blank" class="btn-enq">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card" data-type="hybrid sedan">
+      <div class="car-img"><img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=500&q=75" alt="Nissan Note" onerror="this.style.display='none'">
+        <span class="car-badge" style="background:#14532d;color:#86efac">Hybrid</span>
+        <a href="https://stcjapan.net" target="_blank" class="car-stc">🇯🇵 #2637</a></div>
+      <div class="car-body">
+        <div class="car-top"><span class="car-make">Nissan</span><span class="car-yr">2018</span></div>
+        <div class="car-name">NOTE E-POWER NISMO</div>
+        <div class="specs-row">
+          <div class="spec"><span class="spec-icon">🛣️</span><span class="spec-val">103,000</span><span class="spec-key">KM</span></div>
+          <div class="spec"><span class="spec-icon">⛽</span><span class="spec-val">Hybrid</span><span class="spec-key">Fuel</span></div>
+          <div class="spec"><span class="spec-icon">🎨</span><span class="spec-val">Silver</span><span class="spec-key">Color</span></div>
+          <div class="spec"><span class="spec-icon">⚙️</span><span class="spec-val">1200cc</span><span class="spec-key">Engine</span></div>
+        </div>
+        <div class="car-foot">
+          <div><div class="car-price"><sup>$</sup>6,100</div><div class="car-ugx">≈ UGX 22.9M · FOB Japan</div></div>
+          <a href="https://api.whatsapp.com/send?phone=818080870980&text=Hi%20STC%20Japan%2C%20interested%20in%20Nissan%20Note%20%246%2C100%20-%20Uganda" target="_blank" class="btn-enq">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card" data-type="suv">
+      <div class="car-img"><img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=500&q=75" alt="Land Cruiser" onerror="this.style.display='none'">
+        <span class="car-badge" style="background:#1e3a5f;color:#93c5fd">Popular</span>
+        <a href="https://stcjapan.net" target="_blank" class="car-stc">🇯🇵 STC Japan</a></div>
+      <div class="car-body">
+        <div class="car-top"><span class="car-make">Toyota</span><span class="car-yr">2020</span></div>
+        <div class="car-name">LAND CRUISER 200</div>
+        <div class="specs-row">
+          <div class="spec"><span class="spec-icon">🏔️</span><span class="spec-val">4WD</span><span class="spec-key">Drive</span></div>
+          <div class="spec"><span class="spec-icon">⛽</span><span class="spec-val">Petrol</span><span class="spec-key">Fuel</span></div>
+          <div class="spec"><span class="spec-icon">🎨</span><span class="spec-val">White</span><span class="spec-key">Color</span></div>
+          <div class="spec"><span class="spec-icon">⚙️</span><span class="spec-val">4700cc</span><span class="spec-key">Engine</span></div>
+        </div>
+        <div class="car-foot">
+          <div><div class="car-price"><sup>$</sup>32,000</div><div class="car-ugx">≈ UGX 120M · FOB Japan</div></div>
+          <a href="https://api.whatsapp.com/send?phone=818080870980&text=Hi%20STC%20Japan%2C%20interested%20in%20Land%20Cruiser%20200%20%2432%2C000%20-%20Uganda" target="_blank" class="btn-enq">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card" data-type="suv diesel">
+      <div class="car-img"><img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=500&q=75" alt="Hilux" onerror="this.style.display='none'">
+        <span class="car-badge" style="background:#CC0000;color:#fff">New Arrival</span>
+        <a href="https://stcjapan.net" target="_blank" class="car-stc">🇺🇬 Uganda Stock</a></div>
+      <div class="car-body">
+        <div class="car-top"><span class="car-make">Toyota</span><span class="car-yr">2021</span></div>
+        <div class="car-name">HILUX DOUBLE CAB 4X4</div>
+        <div class="specs-row">
+          <div class="spec"><span class="spec-icon">🛣️</span><span class="spec-val">60,000</span><span class="spec-key">KM</span></div>
+          <div class="spec"><span class="spec-icon">⛽</span><span class="spec-val">Diesel</span><span class="spec-key">Fuel</span></div>
+          <div class="spec"><span class="spec-icon">🎨</span><span class="spec-val">Silver</span><span class="spec-key">Color</span></div>
+          <div class="spec"><span class="spec-icon">⚙️</span><span class="spec-val">2800cc</span><span class="spec-key">Engine</span></div>
+        </div>
+        <div class="car-foot">
+          <div><div class="car-price"><sup>$</sup>28,500</div><div class="car-ugx">≈ UGX 106.9M · FOB Japan</div></div>
+          <a href="https://api.whatsapp.com/send?phone=818080870980&text=Hi%20STC%20Japan%2C%20interested%20in%20Toyota%20Hilux%204x4%20%2428%2C500%20-%20Uganda" target="_blank" class="btn-enq">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card hidden" data-type="suv">
+      <div class="car-img"><img src="https://images.unsplash.com/photo-1609752073440-e95a2e34ba0b?w=500&q=75" alt="Prado" onerror="this.style.display='none'">
+        <span class="car-badge" style="background:#1e3a5f;color:#93c5fd">Popular</span>
+        <a href="https://stcjapan.net" target="_blank" class="car-stc">🇯🇵 STC Japan</a></div>
+      <div class="car-body">
+        <div class="car-top"><span class="car-make">Toyota</span><span class="car-yr">2019</span></div>
+        <div class="car-name">PRADO TX 2.7L</div>
+        <div class="specs-row">
+          <div class="spec"><span class="spec-icon">🛣️</span><span class="spec-val">72,000</span><span class="spec-key">KM</span></div>
+          <div class="spec"><span class="spec-icon">⛽</span><span class="spec-val">Petrol</span><span class="spec-key">Fuel</span></div>
+          <div class="spec"><span class="spec-icon">🎨</span><span class="spec-val">Silver</span><span class="spec-key">Color</span></div>
+          <div class="spec"><span class="spec-icon">⚙️</span><span class="spec-val">2700cc</span><span class="spec-key">Engine</span></div>
+        </div>
+        <div class="car-foot">
+          <div><div class="car-price"><sup>$</sup>22,000</div><div class="car-ugx">≈ UGX 82.5M · FOB Japan</div></div>
+          <a href="https://api.whatsapp.com/send?phone=818080870980&text=Hi%20STC%20Japan%2C%20interested%20in%20Toyota%20Prado%20TX%20%2422%2C000%20-%20Uganda" target="_blank" class="btn-enq">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card hidden" data-type="hybrid sedan">
+      <div class="car-img"><img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?w=500&q=75" alt="Axio" onerror="this.style.display='none'">
+        <span class="car-badge" style="background:#14532d;color:#86efac">Hybrid</span>
+        <a href="https://stcjapan.net" target="_blank" class="car-stc">🇯🇵 STC Japan</a></div>
+      <div class="car-body">
+        <div class="car-top"><span class="car-make">Toyota</span><span class="car-yr">2017</span></div>
+        <div class="car-name">AXIO HYBRID</div>
+        <div class="specs-row">
+          <div class="spec"><span class="spec-icon">🛣️</span><span class="spec-val">94,000</span><span class="spec-key">KM</span></div>
+          <div class="spec"><span class="spec-icon">⛽</span><span class="spec-val">Hybrid</span><span class="spec-key">Fuel</span></div>
+          <div class="spec"><span class="spec-icon">🎨</span><span class="spec-val">White</span><span class="spec-key">Color</span></div>
+          <div class="spec"><span class="spec-icon">⚙️</span><span class="spec-val">1500cc</span><span class="spec-key">Engine</span></div>
+        </div>
+        <div class="car-foot">
+          <div><div class="car-price"><sup>$</sup>7,200</div><div class="car-ugx">≈ UGX 27M · FOB Japan</div></div>
+          <a href="https://api.whatsapp.com/send?phone=818080870980&text=Hi%20STC%20Japan%2C%20interested%20in%20Toyota%20Axio%20Hybrid%20%247%2C200%20-%20Uganda" target="_blank" class="btn-enq">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card hidden" data-type="sedan">
+      <div class="car-img"><img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=500&q=75" alt="Mercedes" onerror="this.style.display='none'">
+        <span class="car-badge" style="background:#3b1f07;color:#fed7aa">Luxury</span>
+        <a href="https://stcjapan.net" target="_blank" class="car-stc">🇯🇵 STC Japan</a></div>
+      <div class="car-body">
+        <div class="car-top"><span class="car-make">Mercedes</span><span class="car-yr">2019</span></div>
+        <div class="car-name">C200 AMG LINE</div>
+        <div class="specs-row">
+          <div class="spec"><span class="spec-icon">🛣️</span><span class="spec-val">68,000</span><span class="spec-key">KM</span></div>
+          <div class="spec"><span class="spec-icon">⛽</span><span class="spec-val">Petrol</span><span class="spec-key">Fuel</span></div>
+          <div class="spec"><span class="spec-icon">🎨</span><span class="spec-val">Black</span><span class="spec-key">Color</span></div>
+          <div class="spec"><span class="spec-icon">⚙️</span><span class="spec-val">2000cc</span><span class="spec-key">Engine</span></div>
+        </div>
+        <div class="car-foot">
+          <div><div class="car-price"><sup>$</sup>21,000</div><div class="car-ugx">≈ UGX 78.8M · FOB Japan</div></div>
+          <a href="https://api.whatsapp.com/send?phone=818080870980&text=Hi%20STC%20Japan%2C%20interested%20in%20Mercedes%20C200%20AMG%20%2421%2C000%20-%20Uganda" target="_blank" class="btn-enq">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="load-wrap">
+    <button class="btn-more" id="btnMore" onclick="loadMore()">Load More Cars ↓</button>
+    <a href="https://stcjapan.net/Browse-Stock" target="_blank" class="btn-primary">View All 1,800+ on STC Japan →</a>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-dark" id="process">
+  <span class="sec-label">The Import Process</span>
+  <h2 class="sec-title">How We Import Your Car</h2>
+  <p class="sec-sub">4 transparent steps from Japan to your driveway in Uganda — we handle everything.</p>
+  <div class="proc-grid">
+    <div class="proc-step"><div class="ps-num">01</div><div class="ps-icon">💬</div><h3>Tell Us What You Want</h3><p>Share your preferred make, model, year, color and budget. We search STC Japan's 1,800+ live vehicles for your perfect match.</p></div>
+    <div class="proc-step"><div class="ps-num">02</div><div class="ps-icon">🔍</div><h3>Inspect &amp; Confirm</h3><p>We send you the official Japanese auction inspection sheet and photos. You verify condition before making any payment.</p></div>
+    <div class="proc-step"><div class="ps-num">03</div><div class="ps-icon">🚢</div><h3>Purchase &amp; Ship</h3><p>We handle all export documentation, freight booking and insurance. STC Japan owns its own fleet for fast, reliable shipping.</p></div>
+    <div class="proc-step"><div class="ps-num">04</div><div class="ps-icon">🎉</div><h3>Customs &amp; Drive</h3><p>Your car arrives in Uganda fully cleared. We assist with registration paperwork. Then it's yours — drive away!</p></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section section-alt" id="why">
+  <span class="sec-label">Our Advantage</span>
+  <h2 class="sec-title">Why Choose Mahad Motors?</h2>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">🇯🇵</div><div><h4>Direct STC Japan Authorization</h4><p>Official licensed agent of Japan's #1 exporter. You deal directly with the source — no middlemen, no markups.</p></div></div>
+    <div class="why-card"><div class="why-icon">🏆</div><div><h4>All Japanese Auction Access</h4><p>STC Japan holds membership at every major Japanese auction. Widest stock, best prices — 1,800+ vehicles available now.</p></div></div>
+    <div class="why-card"><div class="why-icon">📋</div><div><h4>Verified Auction Sheet</h4><p>Every car includes the official Japanese inspection grade report. Know exact condition and history before you commit a cent.</p></div></div>
+    <div class="why-card"><div class="why-icon">📍</div><div><h4>Uganda Ground Support</h4><p>On-the-ground in Uganda handling customs clearance, registration assistance and post-delivery support.</p></div></div>
+    <div class="why-card"><div class="why-icon">💰</div><div><h4>Transparent Pricing</h4><p>We itemize FOB + freight + insurance + duty upfront. What we quote is exactly what you pay — no hidden costs.</p></div></div>
+    <div class="why-card"><div class="why-icon">⚡</div><div><h4>Fast Reliable Shipping</h4><p>STC Japan owns its freight fleet. Average 6–8 weeks from purchase confirmation to Uganda doorstep delivery.</p></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-dark" id="reviews">
+  <span class="sec-label">Customer Reviews</span>
+  <h2 class="sec-title">What Ugandans Say</h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Mahad Motors made importing my car so easy. Got the auction sheet, photos, and delivery within 6 weeks. Exactly as described — highly recommended!"</p>
+      <div class="testi-auth"><div class="testi-avatar">JO</div><div><div class="testi-name">James Okello</div><div class="testi-loc">Kampala, Uganda</div><div class="testi-car">Imported: Toyota Premio 2018</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Was nervous about importing but they guided me every step. Honda Fit arrived in perfect condition. Price exactly as quoted — no surprises at all!"</p>
+      <div class="testi-auth"><div class="testi-avatar">GN</div><div><div class="testi-name">Grace Namukasa</div><div class="testi-loc">Entebbe, Uganda</div><div class="testi-car">Imported: Honda Fit Hybrid 2019</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Very professional and completely transparent pricing with fast shipping. My Nissan X-Trail arrived in great condition. Already planning my second import!"</p>
+      <div class="testi-auth"><div class="testi-avatar">RS</div><div><div class="testi-name">Robert Ssemakula</div><div class="testi-loc">Jinja, Uganda</div><div class="testi-car">Imported: Nissan X-Trail 2020</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-alt" id="about">
+  <span class="sec-label">About Us</span>
+  <h2 class="sec-title">Who Is Mahad Motors?</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Mahad Motors is Uganda's trusted authorized agent of <strong style="color:#ccc">STC Japan</strong> — the world's leading Japanese used car exporter since 2000, headquartered in Asaka Shi, Saitama Ken, Japan.</p>
+      <p>We bridge the gap between Ugandan buyers and Japan's largest vehicle auctions, giving you direct access to 1,800+ verified cars at factory auction prices — with full transparency, no middlemen, and Uganda-based support throughout.</p>
+      <p>From first enquiry to delivery and registration, we walk alongside you every step — because importing from Japan should be straightforward and stress-free.</p>
+      <div class="about-tags">
+        <span class="about-tag">✅ Licensed Agent</span>
+        <span class="about-tag">✅ Transparent Pricing</span>
+        <span class="about-tag">✅ Auction Sheet Provided</span>
+        <span class="about-tag">✅ Local Uganda Support</span>
+        <span class="about-tag">✅ End-to-End Service</span>
+      </div>
+    </div>
+    <div class="about-card">
+      <h4>🇯🇵 STC Japan — Our Official Source</h4>
+      <div class="c-row"><span class="c-ico">📍</span><div class="c-val"><strong>Address</strong>Senzui Garden 206, Asaka Shi, Saitama Ken, Japan 351-0024</div></div>
+      <div class="c-row"><span class="c-ico">📞</span><div class="c-val"><strong>Phone</strong><a href="tel:+819040730786" style="color:#666">+81 90 4073 0786</a></div></div>
+      <div class="c-row"><span class="c-ico">💬</span><div class="c-val"><strong>WhatsApp</strong><a href="https://api.whatsapp.com/send?phone=818080870980" target="_blank" style="color:#666">+81 80 8087 0980</a></div></div>
+      <div class="c-row"><span class="c-ico">✉️</span><div class="c-val"><strong>Email</strong><a href="mailto:info@stcjapan.net" style="color:#666">info@stcjapan.net</a></div></div>
+      <div class="c-row"><span class="c-ico">🌐</span><div class="c-val"><strong>Website</strong><a href="https://stcjapan.net" target="_blank" style="color:#666">stcjapan.net</a></div></div>
+      <div class="c-btns">
+        <a href="https://stcjapan.net/Browse-Stock" target="_blank" class="c-btn-r">Browse Stock →</a>
+        <a href="https://api.whatsapp.com/send?phone=818080870980" target="_blank" class="c-btn-g">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-dark" id="faq">
+  <span class="sec-label">FAQs</span>
+  <h2 class="sec-title">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>How long does importing take?</span><span class="faq-icon">+</span></button><div class="faq-a">Typically 6–10 weeks from purchase to Uganda delivery. Includes auction, sea freight (3–5 weeks), port clearing and road transport to Kampala.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>What is FOB price?</span><span class="faq-icon">+</span></button><div class="faq-a">FOB (Free On Board) is the car price in Japan before shipping. Total = FOB + Freight (~$1,800) + Insurance + Uganda import duty and taxes. Use our Cost Calculator above for estimates.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>What is a Japanese auction sheet?</span><span class="faq-icon">+</span></button><div class="faq-a">An official inspection report grading the car 1–5 (plus R for repaired). Grade 4+ means excellent near-new condition. We always provide this before you pay anything.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>Can I choose exact color and specifications?</span><span class="faq-icon">+</span></button><div class="faq-a">Yes! We search STC Japan's 1,800+ live inventory to match your exact make, model, year, color, mileage range and budget requirements.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>How do I make payment?</span><span class="faq-icon">+</span></button><div class="faq-a">Payment is via bank transfer to STC Japan's official bank account. Always verify banking details directly on stcjapan.net before transferring any funds.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>What Uganda taxes will I pay?</span><span class="faq-icon">+</span></button><div class="faq-a">Import duty 25–45% of CIF value (depends on car age) + 18% VAT. Use our Cost Calculator for estimates. Final figures are determined by Uganda Revenue Authority (URA).</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>Do you help with registration in Uganda?</span><span class="faq-icon">+</span></button><div class="faq-a">Yes! We provide full documentation support for Uganda Vehicle Licensing and help you navigate the URA registration process and all required paperwork.</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section" id="cta">
+  <div class="cta-box">
+    <div class="cta-inner">
+      <div>
+        <h2>READY TO IMPORT<br>YOUR DREAM CAR?</h2>
+        <p>Tell us your requirements and we'll source from STC Japan's 1,800+ verified vehicles. From consultation to delivery at your door — we handle everything for Uganda buyers.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="https://api.whatsapp.com/send?phone=818080870980&text=Hi%20STC%20Japan%2C%20I%20am%20from%20Uganda%20and%20want%20to%20import%20a%20car." target="_blank" class="cta-btn-w">💬 WhatsApp STC Japan</a>
+        <a href="https://stcjapan.net/Browse-Stock" target="_blank" class="cta-btn-o">🇯🇵 Browse Full Stock</a>
+        <a href="tel:+819040730786" class="cta-btn-o">📞 Call STC Japan</a>
+        <a href="mailto:info@stcjapan.net" class="cta-btn-o">✉️ Email Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="fb">
+      <div class="logo" style="margin-bottom:0">
+        <div class="logo-icon">🚗</div>
+        <div>
+          <div class="fb-logo-name">MAHAD <span>MOTORS</span></div>
+          <div style="font-size:8.5px;color:#2a2a2a;letter-spacing:1.5px;text-transform:uppercase">Uganda</div>
+        </div>
+      </div>
+      <p>Uganda's authorized STC Japan agent. We source verified Japanese vehicles from Japan's #1 exporter and deliver to your door with full local support.</p>
+      <a href="https://stcjapan.net" target="_blank" class="fb-stc">🇯🇵 Powered by STC Japan</a>
+      <div class="social-icons">
+        <a href="#" class="social-ico">📘</a>
+        <a href="#" class="social-ico">📸</a>
+        <a href="#" class="social-ico">▶️</a>
+        <a href="https://api.whatsapp.com/send?phone=818080870980" target="_blank" class="social-ico">💬</a>
+      </div>
+    </div>
+    <div class="fc">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="https://stcjapan.net/Browse-Stock" target="_blank">→ Full STC Stock</a></li>
+        <li><a href="https://stcjapan.net/Uganda-vehicle" target="_blank">→ Uganda Stock</a></li>
+        <li><a href="https://stcjapan.net/How-to-Import" target="_blank">→ How to Import</a></li>
+        <li><a href="https://stcjapan.net/Client-Testimonials" target="_blank">→ Reviews</a></li>
+        <li><a href="#faq">→ Import FAQ</a></li>
+        <li><a href="https://stcjapan.net/Sales-Terms" target="_blank">→ Sales Terms</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>Stock by Brand</h5>
+      <ul>
+        <li><a href="https://stcjapan.net/make/Toyota" target="_blank">Toyota (848)</a></li>
+        <li><a href="https://stcjapan.net/make/Nissan" target="_blank">Nissan (235)</a></li>
+        <li><a href="https://stcjapan.net/make/Honda" target="_blank">Honda (197)</a></li>
+        <li><a href="https://stcjapan.net/make/Volkswagen" target="_blank">Volkswagen (98)</a></li>
+        <li><a href="https://stcjapan.net/make/Mercedes" target="_blank">Mercedes (63)</a></li>
+        <li><a href="https://stcjapan.net/make/BMW" target="_blank">BMW (34)</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>STC Japan Contacts</h5>
+      <div class="fc-row"><span class="fc-ico">📞</span><div class="fc-txt"><strong>Phone</strong><a href="tel:+819040730786">+81 90 4073 0786</a></div></div>
+      <div class="fc-row"><span class="fc-ico">💬</span><div class="fc-txt"><strong>WhatsApp</strong><a href="https://api.whatsapp.com/send?phone=818080870980" target="_blank">+81 80 8087 0980</a></div></div>
+      <div class="fc-row"><span class="fc-ico">✉️</span><div class="fc-txt"><strong>Email</strong><a href="mailto:info@stcjapan.net">info@stcjapan.net</a></div></div>
+      <div class="fc-row"><span class="fc-ico">📍</span><div class="fc-txt"><strong>Address</strong>Senzui Garden 206, Asaka Shi, Saitama Ken, Japan 351-0024</div></div>
+      <div class="fc-row"><span class="fc-ico">🌐</span><div class="fc-txt"><strong>Website</strong><a href="https://stcjapan.net" target="_blank">stcjapan.net</a></div></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Mahad Motors Uganda · Cars sourced via <a href="https://stcjapan.net" target="_blank">STC Japan</a> · All prices FOB Japan</p>
+    <p>info@stcjapan.net</p>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a class="float-wa" href="https://api.whatsapp.com/send?phone=818080870980&text=Hi%20STC%20Japan%2C%20I%20am%20from%20Uganda%20and%20want%20to%20import%20a%20car." target="_blank">💬</a>
+<button class="float-top" id="floatTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Scroll
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>40);
+  document.getElementById('floatTop').classList.toggle('show',scrollY>400);
+});
+
+// Hamburger
+document.getElementById('hbg').onclick=function(){document.getElementById('mob').classList.toggle('open')};
+function closeMob(){document.getElementById('mob').classList.remove('open')}
+
+// Filter
+document.querySelectorAll('.flt').forEach(btn=>{
+  btn.onclick=function(){
+    document.querySelectorAll('.flt').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    const f=this.dataset.filter;
+    // Reset hidden state first
+    document.querySelectorAll('.car-card').forEach((c,i)=>{
+      const match=f==='all'||c.dataset.type.includes(f);
+      c.style.display=match?(i<6||expanded?'':'none'):'none';
+    });
+    filterActive=f;
+  };
+});
+
+// Load more
+let expanded=false,filterActive='all';
+document.querySelectorAll('.car-card').forEach((c,i)=>{if(i>=6)c.style.display='none'});
+function loadMore(){
+  expanded=!expanded;
+  document.querySelectorAll('.car-card').forEach((c,i)=>{
+    if(i>=6){
+      const match=filterActive==='all'||c.dataset.type.includes(filterActive);
+      c.style.display=expanded&&match?'':'none';
+    }
+  });
+  document.getElementById('btnMore').textContent=expanded?'Show Less ↑':'Load More Cars ↓';
+}
+
+// Calculator
+function toggleCalc(){
+  const w=document.getElementById('calcWrap');
+  w.classList.toggle('open');
+  if(w.classList.contains('open'))w.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function calcCost(){
+  const fob=parseFloat(document.getElementById('cFob').value)||0;
+  const rate=parseFloat(document.getElementById('cAge').value);
+  const res=document.getElementById('calcRes');
+  if(fob<=0){res.classList.remove('show');return;}
+  const freight=1800,ins=Math.round(fob*.01),cif=fob+freight+ins;
+  const duty=Math.round(cif*rate),vat=Math.round((cif+duty)*.18),total=cif+duty+vat;
+  document.getElementById('rFob').textContent='$'+fob.toLocaleString();
+  document.getElementById('rIns').textContent='$'+ins.toLocaleString();
+  document.getElementById('rCif').textContent='$'+cif.toLocaleString();
+  document.getElementById('rDuty').textContent='$'+duty.toLocaleString()+' ('+(rate*100).toFixed(0)+'%)';
+  document.getElementById('rVat').textContent='$'+vat.toLocaleString();
+  document.getElementById('rTotal').textContent='$'+total.toLocaleString();
+  document.getElementById('rUgx').textContent='≈ UGX '+(total*3750/1e6).toFixed(1)+'M (at 3,750/USD)';
+  res.classList.add('show');
+}
+
+// FAQ
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+
+// Stagger cards
+document.querySelectorAll('.car-card').forEach((c,i)=>{
+  c.style.animationDelay=i*.06+'s';
+  c.style.animation='fadeUp .5s ease both';
+});
+</script>
+</body>
+</html>
